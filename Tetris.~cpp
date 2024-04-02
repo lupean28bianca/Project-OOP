@@ -1,0 +1,39 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+//---------------------------------------------------------------------------
+USEFORM("Unu.cpp", tFormIntro);
+USEFORM("Doi.cpp", FereastraTetris);
+USEFORM("Info.cpp", tFormInfo);
+USEFORM("Rules.cpp", tFormRules);
+//---------------------------------------------------------------------------
+WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
+{
+        try
+        {
+                 Application->Initialize();
+                 Application->CreateForm(__classid(TtFormIntro), &tFormIntro);
+                 Application->CreateForm(__classid(TFereastraTetris), &FereastraTetris);
+                 Application->CreateForm(__classid(TtFormInfo), &tFormInfo);
+                 Application->CreateForm(__classid(TtFormRules), &tFormRules);
+                 Application->Run();
+        }
+        catch (Exception &exception)
+        {
+                 Application->ShowException(&exception);
+        }
+        catch (...)
+        {
+                 try
+                 {
+                         throw Exception("");
+                 }
+                 catch (Exception &exception)
+                 {
+                         Application->ShowException(&exception);
+                 }
+        }
+        return 0;
+}
+//---------------------------------------------------------------------------

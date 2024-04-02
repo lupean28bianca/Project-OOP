@@ -1,0 +1,321 @@
+//---------------------------------------------------------------------------
+
+
+#pragma hdrstop
+
+#include "Blocks.h"   
+#include "Block.h"
+#include "Position.h"
+#include <map>
+
+
+//---------------------------------------------------------------------------
+
+#pragma package(smart_init)
+
+LBlock::LBlock(){
+                ID=1;
+
+                Position posL11(0,2);
+                Position posL12(1,0);
+                Position posL13(1,1);
+                Position posL14(1,2);
+                std::vector<Position> vectorL1;
+                vectorL1.push_back(posL11);
+                vectorL1.push_back(posL12);
+                vectorL1.push_back(posL13);
+                vectorL1.push_back(posL14);
+                tiles[0]=vectorL1;
+
+                Position posL21(0,1);
+                Position posL22(1,1);
+                Position posL23(2,1);
+                Position posL24(2,2);
+                std::vector<Position> vectorL2;
+                vectorL2.push_back(posL21);
+                vectorL2.push_back(posL22);
+                vectorL2.push_back(posL23);
+                vectorL2.push_back(posL24);
+                tiles[1]=vectorL2;
+
+                Position posL31(1,0);
+                Position posL32(1,1);
+                Position posL33(1,2);
+                Position posL34(2,0);
+                std::vector<Position> vectorL3;
+                vectorL3.push_back(posL31);
+                vectorL3.push_back(posL32);
+                vectorL3.push_back(posL33);
+                vectorL3.push_back(posL34);
+                tiles[2]=vectorL3;
+
+                Position posL41(0,0);
+                Position posL42(0,1);
+                Position posL43(1,1);
+                Position posL44(2,1);
+                std::vector<Position> vectorL4;
+                vectorL4.push_back(posL41);
+                vectorL4.push_back(posL42);
+                vectorL4.push_back(posL43);
+                vectorL4.push_back(posL44);
+                tiles[3]=vectorL4;
+
+                Init(0,3);  //ca sa se spauneze in mijlocul grid-ului
+        }
+
+JBlock::JBlock(){
+                ID=2;
+                Position posJ11(0,0);
+                Position posJ12(1,0);
+                Position posJ13(1,1);
+                Position posJ14(1,2);
+                std::vector<Position> vectorJ1;
+                vectorJ1.push_back(posJ11);
+                vectorJ1.push_back(posJ12);
+                vectorJ1.push_back(posJ13);
+                vectorJ1.push_back(posJ14);
+                tiles[0]=vectorJ1;
+
+                Position posJ21(0,1);
+                Position posJ22(0,2);
+                Position posJ23(1,1);
+                Position posJ24(2,1);
+                std::vector<Position> vectorJ2;
+                vectorJ2.push_back(posJ21);
+                vectorJ2.push_back(posJ22);
+                vectorJ2.push_back(posJ23);
+                vectorJ2.push_back(posJ24);
+                tiles[1]=vectorJ2;
+
+                Position posJ31(1,0);
+                Position posJ32(1,1);
+                Position posJ33(1,2);
+                Position posJ34(2,2);
+                std::vector<Position> vectorJ3;
+                vectorJ3.push_back(posJ31);
+                vectorJ3.push_back(posJ32);
+                vectorJ3.push_back(posJ33);
+                vectorJ3.push_back(posJ34);
+                tiles[2]=vectorJ3;
+
+                Position posJ41(0,1);
+                Position posJ42(1,1);
+                Position posJ43(2,0);
+                Position posJ44(2,1);
+                std::vector<Position> vectorJ4;
+                vectorJ4.push_back(posJ41);
+                vectorJ4.push_back(posJ42);
+                vectorJ4.push_back(posJ43);
+                vectorJ4.push_back(posJ44);
+                tiles[3]=vectorJ4;
+
+                Init(0,3);
+        }
+IBlock::IBlock(){
+                ID=3;
+                Position posI11(1,0);
+                Position posI12(1,1);
+                Position posI13(1,2);
+                Position posI14(1,3);
+                std::vector<Position> vectorI1;
+                vectorI1.push_back(posI11);
+                vectorI1.push_back(posI12);
+                vectorI1.push_back(posI13);
+                vectorI1.push_back(posI14);
+                tiles[0]=vectorI1;
+
+                Position posI21(0,2);
+                Position posI22(1,2);
+                Position posI23(2,2);
+                Position posI24(3,2);
+                std::vector<Position> vectorI2;
+                vectorI2.push_back(posI21);
+                vectorI2.push_back(posI22);
+                vectorI2.push_back(posI23);
+                vectorI2.push_back(posI24);
+                tiles[1]=vectorI2;
+
+                Position posI31(2,0);
+                Position posI32(2,1);
+                Position posI33(2,2);
+                Position posI34(2,3);
+                std::vector<Position> vectorI3;
+                vectorI3.push_back(posI31);
+                vectorI3.push_back(posI32);
+                vectorI3.push_back(posI33);
+                vectorI3.push_back(posI34);
+                tiles[2]=vectorI3;
+
+                Position posI41(0,1);
+                Position posI42(1,1);
+                Position posI43(2,1);
+                Position posI44(3,1);
+                std::vector<Position> vectorI4;
+                vectorI4.push_back(posI41);
+                vectorI4.push_back(posI42);
+                vectorI4.push_back(posI43);
+                vectorI4.push_back(posI44);
+                tiles[3]=vectorI4;
+                Init(-1,3);
+        }
+OBlock::OBlock(){
+                ID=4;
+                Position posO1(0,0);
+                Position posO2(0,1);
+                Position posO3(1,0);
+                Position posO4(1,1);
+                std::vector<Position> vectorO;
+                vectorO.push_back(posO1);
+                vectorO.push_back(posO2);
+                vectorO.push_back(posO3);
+                vectorO.push_back(posO4);
+                tiles[0]=vectorO;
+
+                Init(0,4);
+
+        }
+SBlock::SBlock(){
+                ID=5;
+                Position posS11(0,1);
+                Position posS12(0,2);
+                Position posS13(1,0);
+                Position posS14(1,1);
+                std::vector<Position> vectorS1;
+                vectorS1.push_back(posS11);
+                vectorS1.push_back(posS12);
+                vectorS1.push_back(posS13);
+                vectorS1.push_back(posS14);
+                tiles[0]=vectorS1;
+
+                Position posS21(0,1);
+                Position posS22(1,1);
+                Position posS23(1,2);
+                Position posS24(2,2);
+                std::vector<Position> vectorS2;
+                vectorS2.push_back(posS21);
+                vectorS2.push_back(posS22);
+                vectorS2.push_back(posS23);
+                vectorS2.push_back(posS24);
+                tiles[1]=vectorS2;
+
+                Position posS31(1,1);
+                Position posS32(1,2);
+                Position posS33(2,0);
+                Position posS34(2,1);
+                std::vector<Position> vectorS3;
+                vectorS3.push_back(posS31);
+                vectorS3.push_back(posS32);
+                vectorS3.push_back(posS33);
+                vectorS3.push_back(posS34);
+                tiles[2]=vectorS3;
+
+                Position posS41(0,0);
+                Position posS42(1,0);
+                Position posS43(1,1);
+                Position posS44(2,1);
+                std::vector<Position> vectorS4;
+                vectorS4.push_back(posS41);
+                vectorS4.push_back(posS42);
+                vectorS4.push_back(posS43);
+                vectorS4.push_back(posS44);
+                tiles[3]=vectorS4;
+
+                Init(0,3);
+        }
+TBlock::TBlock(){
+                ID=6;
+                Position posT11(0,1);
+                Position posT12(1,0);
+                Position posT13(1,1);
+                Position posT14(1,2);
+                std::vector<Position> vectorT1;
+                vectorT1.push_back(posT11);
+                vectorT1.push_back(posT12);
+                vectorT1.push_back(posT13);
+                vectorT1.push_back(posT14);
+                tiles[0]=vectorT1;
+
+                Position posT21(0,1);
+                Position posT22(1,1);
+                Position posT23(1,2);
+                Position posT24(2,1);
+                std::vector<Position> vectorT2;
+                vectorT2.push_back(posT21);
+                vectorT2.push_back(posT22);
+                vectorT2.push_back(posT23);
+                vectorT2.push_back(posT24);
+                tiles[1]=vectorT2;
+
+                Position posT31(1,0);
+                Position posT32(1,1);
+                Position posT33(1,2);
+                Position posT34(2,1);
+                std::vector<Position> vectorT3;
+                vectorT3.push_back(posT31);
+                vectorT3.push_back(posT32);
+                vectorT3.push_back(posT33);
+                vectorT3.push_back(posT34);
+                tiles[2]=vectorT3;
+
+                Position posT41(0,1);
+                Position posT42(1,0);
+                Position posT43(1,1);
+                Position posT44(2,1);
+                std::vector<Position> vectorT4;
+                vectorT4.push_back(posT41);
+                vectorT4.push_back(posT42);
+                vectorT4.push_back(posT43);
+                vectorT4.push_back(posT44);
+                tiles[3]=vectorT4;
+
+                Init(0,3);
+        }
+ZBlock::ZBlock(){
+                ID=7;
+                Position posZ11(0,0);
+                Position posZ12(0,1);
+                Position posZ13(1,1);
+                Position posZ14(1,2);
+                std::vector<Position> vectorZ1;
+                vectorZ1.push_back(posZ11);
+                vectorZ1.push_back(posZ12);
+                vectorZ1.push_back(posZ13);
+                vectorZ1.push_back(posZ14);
+                tiles[0]=vectorZ1;
+
+                Position posZ21(0,2);
+                Position posZ22(1,1);
+                Position posZ23(1,2);
+                Position posZ24(2,1);
+                std::vector<Position> vectorZ2;
+                vectorZ2.push_back(posZ21);
+                vectorZ2.push_back(posZ22);
+                vectorZ2.push_back(posZ23);
+                vectorZ2.push_back(posZ24);
+                tiles[1]=vectorZ2;
+
+                Position posZ31(1,0);
+                Position posZ32(1,1);
+                Position posZ33(2,1);
+                Position posZ34(2,2);
+                std::vector<Position> vectorZ3;
+                vectorZ3.push_back(posZ31);
+                vectorZ3.push_back(posZ32);
+                vectorZ3.push_back(posZ33);
+                vectorZ3.push_back(posZ34);
+                tiles[2]=vectorZ3;
+
+                Position posZ41(0,1);
+                Position posZ42(1,0);
+                Position posZ43(1,1);
+                Position posZ44(2,0);
+                std::vector<Position> vectorZ4;
+                vectorZ4.push_back(posZ41);
+                vectorZ4.push_back(posZ42);
+                vectorZ4.push_back(posZ43);
+                vectorZ4.push_back(posZ44);
+                tiles[3]=vectorZ4;
+
+                Init(0,3);
+        }
+
